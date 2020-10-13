@@ -2,25 +2,63 @@
 // iostream is a header file.
 #include <iostream>
 
-// Main Program:
-int main()
+
+void PrintIntroduction()
 {
-    std::cout << "You are a secret agent breaking into a secure server room...";
-    std::cout << std::endl;
-    std::cout << "You need to enter the correct codes to continue...";
+    // Print welcome messages to the terminal.
+    // cout = 'Character Output' and << is known as the 'Insertion Operator'.
+    std::cout << "You are a secret agent breaking into a secure server room...\n";
+    std::cout << "You need to enter the correct codes to continue...\n\n";
+}
+
+
+
+void PlayGame()
+{
+    PrintIntroduction();
 
     // Declare and initialise variables.
-    const int a = 4;
-    const int b = 3;
-    const int c = 2;
+    // Declare three numhber code.
+    const int CodeA = 4;
+    const int CodeB = 3;
+    const int CodeC = 2;
 
-    const int sum = a + b + c;
-    const int product = a * b * c;
+    const int CodeSum = CodeA + CodeB + CodeC;
+    const int CodeProduct = CodeA * CodeB * CodeC;
 
-    std::cout << std::endl;
-    std::cout << sum << std::endl;
-    std::cout << product << std::endl;
 
-    // Return.
+    // Print the code's rules to the terminal.
+    std::cout << "+ There are 3 numbers in the code";
+    std::cout << "\n+ The codes add-up to: " << CodeSum;
+    std::cout << "\n+ The codes multiply to give: " << CodeProduct << std::endl;
+
+
+    // Store the player's guess.
+    int GuessA, GuessB, GuessC;
+    // cin = 'Character Input' and >> is known as the 'Extraction Operator'.
+    std::cin >> GuessA >> GuessB >> GuessC;
+
+    int GuessSum = GuessA + GuessB + GuessC;
+    int GuessProduct = GuessA * GuessB * GuessC;
+
+
+    // Check to see if the player's input is correct.
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "\nYou win!";
+    }
+    else
+    {
+        std::cout << "\nYou lose!";
+    }
+}
+
+
+
+int main()
+// Main Program - main() is the entry point for every C++ program and must have one to compile.:
+{
+    PlayGame();
+    // Return - This is mandantory.
     return 0;
 }
